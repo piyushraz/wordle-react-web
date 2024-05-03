@@ -1,0 +1,376 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	margin: 10px;
+	padding: 0;
+	background: #000;
+	color: #fff;
+}
+
+header {
+	font-weight: bold;
+	border-bottom: 1px solid grey;
+	padding-top: 5ex;
+	padding-bottom: 1ex;
+}
+
+nav {
+	display: flex;
+	width: 100%;
+}
+
+.alignleft {
+	width: 33.33333%;
+	text-align: left;
+}
+
+.aligncenter {
+	width: 33.33333%;
+	text-align: center;
+}
+
+.alignright {
+	width: 33.33333%;
+	text-align: right;
+}
+
+.alignright a .material-symbols-outlined:hover {
+	transform: scale(1.2);
+}
+
+nav a {
+	color: white;
+}
+
+nav .ui_home {
+	font-size: x-large;
+	text-decoration: underline;
+}
+
+/* nav .ui_menu { } */
+
+/* nav .ui_menu:hover { transform: scale(1.2); } */
+
+.textblock {
+	border: 1px solid white;
+	width: 50%;
+	padding: 1ex;
+	margin: 1ex auto 1ex auto;
+	cursor: pointer;
+}
+
+.letterbox td {
+	text-align: center;
+	border: 1px solid grey;
+	width: 3ex;
+	height: 3ex;
+}
+
+
+.keyboardrow td {
+	text-align: center;
+	border: 1px solid grey;
+	width: 3ex;
+	height: 3ex;
+	cursor: pointer;
+	user-select: none;
+}
+
+.new-game-button {
+	background: #fff;
+	cursor: pointer;
+	padding: 8px 16px; /* Slightly less padding */
+	font-size: 1em; /* Smaller font size */
+	font-weight: 500; /* Semi-bold font weight */
+	border-radius: 6px; /* Adjusted border radius for aesthetics */
+	border: 2px solid white; /* Remove border if you don't need it */
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional: add a subtle shadow */
+	transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .new-game-button:hover {
+	background-color: #6f6; /* Slightly darker background on hover */
+	color: black;
+	border: 2px solid #6f6; /* Change border color to white on hover */
+  }
+  
+.ui_top h2 {
+	text-align: center;
+}
+
+nav.ui_home span.ui_home,
+nav.ui_username span.ui_username,
+nav.ui_play_lobby span.ui_play, /* Adjusted to target .ui_play within .ui_play_lobby */
+nav.ui_play_lobby span.ui_lobby, /* New rule for the lobby icon */
+nav.ui_stats span.ui_stats,
+nav.ui_instructions span.ui_instructions {
+	color: #6f6;
+	background: #000;
+}
+
+nav span.active {
+	color: #6f6; /* Or any color you want for the active state */
+	background: #000;
+  }
+
+.present {
+	background-color: #d79a22;
+	color: white;
+}
+
+.absent {
+	background-color: #777;
+	color: white;
+}
+
+.correct {
+	background-color: #479a22;
+	color: white;
+}
+
+nav span.active {
+	color: #6f6;
+	background: #000;
+}
+
+
+
+
+
+.popup {
+	position: fixed;
+	/* Positioning relative to the viewport */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Dim the background */
+	display: flex;
+	align-items: center;
+	/* Aligns vertically center */
+	justify-content: center;
+	/* Aligns horizontally center */
+	z-index: 999;
+	/* Ensure it's on top */
+	/* Removed border from here */
+}
+
+.popup-content {
+	background: black;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	/* Above the dimmed background */
+	width: auto;
+	max-width: 500px;
+	/* Maximum width of the popup box */
+	border: 2px solid white;
+	/* Correctly specify the border here */
+	color: white;
+	/* Set text color to white for all text inside popup-content */
+}
+
+.popup-header,
+.popup-body,
+.popup-footer {
+	margin-bottom: 10px;
+}
+
+.popup-footer button {
+	padding: 5px 10px;
+	background-color: black;
+	/* Or any color you prefer */
+	color: white;
+	border: 2px solid white;
+	/* Keep this if you want a border on the button */
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.popup-footer button:hover {
+	background-color: white;
+	color: black;
+}
+
+
+
+
+.error-popup {
+	position: absolute;
+	right: 20px;
+	/* Adjust based on your layout */
+	background-color: #f44336;
+	/* Error color */
+	color: white;
+	padding: 10px;
+	border-radius: 4px;
+	z-index: 100;
+	transition: opacity 2s ease-out;
+	opacity: 1;
+}
+
+.fade {
+	opacity: 0 !important;
+	transition: opacity 2s ease-out;
+}
+
+.game-mode h2,
+.letter-examples h2 {
+	font-size: 1.2em;
+	margin-bottom: 15px;
+}
+
+.game-mode p,
+.letter-examples p {
+	font-size: 1em;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+/* Letter Examples */
+.example-table {
+	border-collapse: separate;
+	border-spacing: 5px 10px;
+	margin-bottom: 20px;
+}
+
+.example-table td {
+	width: 3ex;
+	height: 3ex;
+	text-align: center;
+	border: 1px solid grey;
+	font-family: monospace;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}
+
+.example-table .correct-position {
+	background-color: #479a22;
+	/* Correct position color */
+}
+
+.example-table .incorrect-position {
+	background-color: #d79a22;
+	/* Incorrect position but in word color */
+}
+
+.example-table .absent {
+	background-color: #777;
+	/* Letter not in word color */
+}
+
+
+
+
+
+
+
+/* Timer  */
+.timer-container {
+	display: flex; /* Use flexbox for alignment */
+	align-items: center; /* Center items vertically */
+	justify-content: center; /* Center items horizontally */
+	color: #fff; /* White text color */
+	font-family: 'Roboto', sans-serif; /* Your existing font */
+	margin: 20px 0; /* Vertical margin */
+  }
+  
+  .time-left-label {
+	margin-right: 10px; /* Space after the label */
+	font-size: 1rem; /* Font size for the label */
+  }
+  
+  .timer-icon {
+	font-size: 1.5rem; /* Larger icon size */
+	margin-right: 5px; /* Space between icon and time */
+  }
+  
+  .timer-time {
+	font-size: 1.5rem; /* Larger font size for the timer */
+	font-weight: bold; /* Make the timer text bold */
+  }
+  
+/* players  */
+.players-in-game {
+	margin-top: 20px;
+	color: #fff; /* White text color */
+	text-align: center; /* Center-align the entire block */
+  }
+  
+  .players-in-game h3 {
+	margin-bottom: 10px; /* Space below the heading */
+  }
+  
+  .players-list {
+	list-style-type: none; /* Remove default list bullets */
+	padding: 0; /* Remove default padding */
+	/* No text-align needed here since it's centered in the parent */
+  }
+  
+  .players-list li {
+	border: 1px solid #fff; /* White border for each player item */
+	padding: 5px 10px; /* Padding inside each player item */
+	margin-bottom: 5px; /* Space between items */
+	border-radius: 5px; /* Rounded corners for each player item */
+	display: inline-block; /* Allows each item to only be as wide as its content */
+	margin-right: 10px; /* Right margin for spacing between items */
+	margin-left: 10px; /* Left margin for spacing between items */
+	white-space: nowrap; /* Ensure the text does not wrap */
+  }
+  
+  /* Last child has no right margin to maintain even spacing */
+  .players-list li:last-child {
+	margin-right: 0;
+  }
+  
+  /* Highlight the current player */
+  .players-list li.current-player {
+	background-color: #444; /* Darker background for emphasis */
+	color: #fff; /* White text color */
+  }
+  
+  /* stats global  */
+  .stats-container {
+	text-align: center;
+	margin: 20px 0;
+	padding: 10px;
+	border: 1px solid #fff; /* White border for the stats container */
+	border-radius: 10px; /* Rounded corners for the stats container */
+	max-width: 600px; /* Adjust the max-width as needed */
+	margin: 20px auto; /* This centers the container */
+	background: #444; /* Slight background for visibility */
+  }
+  
+  .stats-title {
+	color: #fff;
+	font-size: 1.5em;
+	margin-bottom: 15px; /* Space below the title */
+  }
+  
+  .stats-wins-losses {
+	display: flex;
+	justify-content: center; /* Center the items horizontally */
+	align-items: center; /* Center the items vertically */
+	gap: 20px; /* Space between the win/loss items */
+  }
+  
+  .stats-wins,
+  .stats-losses {
+	color: #fff;
+	font-size: 1.2em;
+	padding: 5px 20px;
+	border: 1px solid #fff; /* Red border for wins/losses stats */
+	border-radius: 5px; /* Rounded corners for wins/losses stats */
+  }
+  
+  .winner-name {
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.5em;
+	margin-bottom: 20px;
+  }
+  

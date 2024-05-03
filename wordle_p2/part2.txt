@@ -1,0 +1,64 @@
+Goal: Modify A3 Part 1 so that you play a multiplayer version of mordle.io
+essentially the classic version.
+
+https://ably.com/blog/websockets-react-tutorial
+
+
+Outline: 
+create a wordle_p2 directory, a copy of your completed wordle_p1 project.
+For part2, you are going to modify this project so that it uses web sockets
+and implements the classic game. wordle_p2 only allows a user to play
+the classic game!
+
+You have to figure out things like how to
+coordinate the users to get them started on a game. Additionally, you will
+implement the status view when the users is playing. This displays
+the current state of the shared game. 
+
+Here is a simple way to get this started...but you do this however you want.
+
+Add the ws library to the backend server. Take a look at the web sockets
+lecture and then add in a web sockets channel to the frontend. This is a back channel
+to the original api. Lets start simple, so we can learn...
+
+The server maintains a single ONE shared game that all connected users play.
+The game can restart every 5 minutes. Everyone that joins, joins a game in progress.
+Now this does not mean that there is a single Wordle instance, thats up to you.
+
+When a user makes an api call, the game is updated and the shared game 
+state is broadcast back to all of the connected players. You might also want
+to have a shared timer that ticks on the server and broadcasts the time remaining
+to all of the connected players.
+
+Now when a user makes an api request, the request goes against
+the ONE shared game running on the server. All connected participants play that game.
+
+Minimum functionality has
+- a single multiplayer game running
+- game ends every 5 minutes
+- realtime, sockets based display of game status, clock, number of players, num won, num lost (as in mordle.io)
+- display of user and global statistics (on stats page), keep it simple: wins, lost, played for both the user
+  and for the group.
+
+Marking: You should expect your mark to be, approximately, ...
+
+        5/5 Simple, clear, concise working code
+        4/5 Works, but is not simple, clear, concise or minor flaws in functionality, interface etc.
+        3/5 Conceptual errors, major flaws in functionality.
+                Alternatively, lots of the types of flaws that bring one from 5/5 to 4/5
+        2/5 Many Conceptual errors
+        1/5 A non-functional serious attempt
+
+
+	For teams of 2, for this part of the assignment, you will have a chance to show off a bit.
+	20% of the assignment will be marked based on features in part2. To help us mark this
+	please submit a features.txt outlining the features that you implement in part2. 
+
+	Single member groups:
+                A3 Part1: 50%
+                A3 Part2: 50%
+	Double member groups:
+                A3 Part1: 40%
+                A3 Part2: 40%
+		A3 Part2 Features: 20%
+

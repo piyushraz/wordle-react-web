@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<!-- <script src="lib/jquery-3.7.1.min.js"></script> -->
+
+		<script language="javascript" src="model.js" > </script>
+		<script language="javascript" src="controller.js" > </script>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link rel="stylesheet" href="style.css" type="text/css"> 
+
+		<title>309dle</title>
+	</head>
+	<body>
+		<header>
+			<nav id="ui_nav">
+				<span class="alignleft"></span>
+				<span class="aligncenter">
+					<a name="ui_home" style="font-size:x-large; text-decoration:underline;" onclick="showUI('#ui_home');">309DLE</a>
+				</span>
+				<span class="alignright">
+					<a name="ui_username" onclick="showUI('#ui_username');"><span class="material-symbols-outlined"> person </span></a>
+					<a name="ui_play" onclick="showUI('#ui_play');"><span class="material-symbols-outlined"> play_circle </span></a>
+					<a name="ui_stats" onclick="showUI('#ui_stats');"><span class="material-symbols-outlined"> leaderboard </span></a>
+					<a name="ui_instructions" onclick="showUI('#ui_instructions');"><span class="material-symbols-outlined"> help </span></a>
+				</span>
+			</nav>
+		</header>
+		<div class="ui_top" id="ui_home">
+			<div class="textblock"> 
+				Solo
+				<br/>
+				Play the classic game against yourself. 
+			</div>
+		</div>
+		<div class="ui_top" id="ui_username">
+			<h2>username: <span id="username"></span></h2>
+		</div>
+		<div class="ui_top" id="ui_play">
+			<center>
+				<table class="letterbox">
+					<tr class="row0" > <td class="col0">&nbsp;</td> <td class="col1">&nbsp;</td> <td class="col2">&nbsp;</td> <td class="col3">&nbsp;</td> <td class="col4">&nbsp;</td> </td> </tr>
+					<tr class="row1" > <td class="col0">&nbsp;</td> <td class="col1">&nbsp;</td> <td class="col2">&nbsp;</td> <td class="col3">&nbsp;</td> <td class="col4">&nbsp;</td> </td> </tr>
+					<tr class="row2" > <td class="col0">&nbsp;</td> <td class="col1">&nbsp;</td> <td class="col2">&nbsp;</td> <td class="col3">&nbsp;</td> <td class="col4">&nbsp;</td> </td> </tr>
+					<tr class="row3" > <td class="col0">&nbsp;</td> <td class="col1">&nbsp;</td> <td class="col2">&nbsp;</td> <td class="col3">&nbsp;</td> <td class="col4">&nbsp;</td> </td> </tr>
+					<tr class="row4" > <td class="col0">&nbsp;</td> <td class="col1">&nbsp;</td> <td class="col2">&nbsp;</td> <td class="col3">&nbsp;</td> <td class="col4">&nbsp;</td> </td> </tr>
+					<tr class="row5" > <td class="col0">&nbsp;</td> <td class="col1">&nbsp;</td> <td class="col2">&nbsp;</td> <td class="col3">&nbsp;</td> <td class="col4">&nbsp;</td> </td> </tr>
+				</table>
+			</center>
+			<br/>
+			<br/>
+			<center>
+				<table class="keyboardrow">
+					<tr><td>Q</td> <td>W</td> <td>E</td> <td>R</td> <td>T</td> <td>Y</td> <td>U</td> <td>I</td> <td>O</td> <td>P</td></tr>
+				</table>
+				<table class="keyboardrow">
+					<tr><td>A</td> <td>S</td> <td>D</td> <td>F</td> <td>G</td> <td>H</td> <td>J</td> <td>K</td> <td>L</td> </tr>
+				</table>
+				<table class="keyboardrow">
+					<tr><td>DEL</td><td>Z</td> <td>X</td> <td>C</td> <td>V</td> <td>B</td> <td>N</td> <td>M</td> <td>ENTER</td></tr>
+				</table>
+			</center>
+			<br/>
+			<br/>
+			<center>
+				<button id="play_newgame_button" style="background:red;" onclick="gui_newgame();">NEW GAME</button>
+			</center>
+		</div>
+		<div class="ui_top" id="ui_stats">
+			<center style="font-size:xx-large;">
+				<span class="material-symbols-outlined"> check_circle </span> 8 &nbsp;
+				<span class="material-symbols-outlined"> help </span> 1 &nbsp;
+				<span class="material-symbols-outlined"> cancel </span> 2
+			</center>
+		</div>
+		<div class="ui_top" id="ui_instructions">
+			<div class="textblock"> 
+				Take a look a mordle.io instructions.
+			</div>
+		</div>
+	</body>
+</html>

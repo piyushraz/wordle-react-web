@@ -1,0 +1,56 @@
+I have broken the system into
+
+backend: api and web sockets server
+frontend: React server and proxy to backend
+
+
+I have already done the following for you:
+	backend: 
+		created with dependencies
+		.gitignore node_modules
+
+	frontend: 
+		npx create-react-app 
+		install the proxy
+		rm -fr .git # React creates a repo, don't want to deal with nested repos!
+
+		.gitignore node_modules
+
+		The frontend server is setup to proxy api requests to the backend. This means
+		you don't have to worry about cors. That is, as far as the browser is
+		concerned, the React server is also serving up the api.
+
+To setup on our lab systems:
+	pick a system: dh20XXpcXX
+	log into that system
+
+	mkdir -p /virtual/$USER/csc309a3
+	cd /virtual/$USER/csc309a3
+	git clone YOUR GROUP REPO
+	unzip wordle.zip in the root of your repo
+
+	npm install both the frontend and the backend
+
+	Configure: backend port
+	Configure: frontend port
+	Configure: frontend proxy to the backend: setupProxy.js (just fix the port number)
+
+To run on our lab systems: 
+	after placing the code in /virtual
+	git pull
+	npm install both the frontend and the backend
+
+	in the frontend run
+		npm start
+	in the backend run
+		nodejs wordle_backend.js
+
+If you are logged in remotely to the lab you might want to
+port forward so that you can see your progress on your local browser.
+
+	ssh -L 3000:localhost:FRONTEND_PORT UTORID@dh20XXpcXX.utm.utoronto.ca
+
+Now on your local browser you can visit
+
+	http://localhost:3000
+	

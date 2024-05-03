@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -fr wordle_p1/frontend/node_modules
+rm -fr wordle_p1/backend/node_modules

@@ -1,0 +1,23 @@
+# This is what I did initially to create the backend and frontend.
+# You don't need to do this.
+
+#!/bin/bash
+
+
+CWD="$(pwd)";
+
+# backend is for web sockets and restful api
+mkdir backend 
+cd backend 
+npm init
+npm i express ws
+cd "$CWD"
+
+# frontend is for react
+npx create-react-app frontend
+
+# To switch react port: 
+# edit frontend/package.json 
+# "scripts": {
+#   "start": "set PORT=5000 && react-scripts start"
+# }

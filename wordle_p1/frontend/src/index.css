@@ -1,0 +1,245 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	margin: 10px;
+	padding: 0;
+	background: #000;
+	color: #fff;
+}
+
+header {
+	font-weight: bold;
+	border-bottom: 1px solid grey;
+	padding-top: 5ex;
+	padding-bottom: 1ex;
+}
+
+nav {
+	display: flex;
+	width: 100%;
+}
+
+.alignleft {
+	width: 33.33333%;
+	text-align: left;
+}
+
+.aligncenter {
+	width: 33.33333%;
+	text-align: center;
+}
+
+.alignright {
+	width: 33.33333%;
+	text-align: right;
+}
+
+.alignright a .material-symbols-outlined:hover {
+	transform: scale(1.2);
+}
+
+nav a {
+	color: white;
+}
+
+nav .ui_home {
+	font-size: x-large;
+	text-decoration: underline;
+}
+
+/* nav .ui_menu { } */
+
+/* nav .ui_menu:hover { transform: scale(1.2); } */
+
+.textblock {
+	border: 1px solid white;
+	width: 50%;
+	padding: 1ex;
+	margin: 1ex auto 1ex auto;
+	cursor: pointer;
+}
+
+.letterbox td {
+	text-align: center;
+	border: 1px solid grey;
+	width: 3ex;
+	height: 3ex;
+}
+
+
+.keyboardrow td {
+	text-align: center;
+	border: 1px solid grey;
+	width: 3ex;
+	height: 3ex;
+	cursor: pointer;
+	user-select: none;
+}
+
+.new-game-button {
+	background: red;
+	cursor: pointer;
+}
+
+.ui_top h2 {
+	text-align: center;
+}
+
+nav.ui_home span.ui_home,
+nav.ui_username span.ui_username,
+nav.ui_play span.ui_play,
+nav.ui_stats span.ui_stats,
+nav.ui_instructions span.ui_instructions {
+	color: #6f6;
+	background: #000;
+}
+
+.present {
+	background-color: #d79a22;
+	color: white;
+}
+
+.absent {
+	background-color: #777;
+	color: white;
+}
+
+.correct {
+	background-color: #479a22;
+	color: white;
+}
+
+nav span.active {
+	color: #6f6;
+	background: #000;
+}
+
+
+
+
+
+.popup {
+	position: fixed;
+	/* Positioning relative to the viewport */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Dim the background */
+	display: flex;
+	align-items: center;
+	/* Aligns vertically center */
+	justify-content: center;
+	/* Aligns horizontally center */
+	z-index: 999;
+	/* Ensure it's on top */
+	/* Removed border from here */
+}
+
+.popup-content {
+	background: black;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	/* Above the dimmed background */
+	width: auto;
+	max-width: 500px;
+	/* Maximum width of the popup box */
+	border: 2px solid white;
+	/* Correctly specify the border here */
+	color: white;
+	/* Set text color to white for all text inside popup-content */
+}
+
+.popup-header,
+.popup-body,
+.popup-footer {
+	margin-bottom: 10px;
+}
+
+.popup-footer button {
+	padding: 5px 10px;
+	background-color: black;
+	/* Or any color you prefer */
+	color: white;
+	border: 2px solid white;
+	/* Keep this if you want a border on the button */
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.popup-footer button:hover {
+	background-color: white;
+	color: black;
+}
+
+
+
+
+.error-popup {
+	position: absolute;
+	right: 20px;
+	/* Adjust based on your layout */
+	background-color: #f44336;
+	/* Error color */
+	color: white;
+	padding: 10px;
+	border-radius: 4px;
+	z-index: 100;
+	transition: opacity 2s ease-out;
+	opacity: 1;
+}
+
+.fade {
+	opacity: 0 !important;
+	transition: opacity 2s ease-out;
+}
+
+.game-mode h2,
+.letter-examples h2 {
+	font-size: 1.2em;
+	margin-bottom: 15px;
+}
+
+.game-mode p,
+.letter-examples p {
+	font-size: 1em;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+/* Letter Examples */
+.example-table {
+	border-collapse: separate;
+	border-spacing: 5px 10px;
+	margin-bottom: 20px;
+}
+
+.example-table td {
+	width: 3ex;
+	height: 3ex;
+	text-align: center;
+	border: 1px solid grey;
+	font-family: monospace;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}
+
+.example-table .correct-position {
+	background-color: #479a22;
+	/* Correct position color */
+}
+
+.example-table .incorrect-position {
+	background-color: #d79a22;
+	/* Incorrect position but in word color */
+}
+
+.example-table .absent {
+	background-color: #777;
+	/* Letter not in word color */
+}

@@ -1,0 +1,228 @@
+Goal: Implement A2 Part2 with a React frontend
+
+General comments:
+	Throughout A3 Part1, the server is maintaining instances of Wordle in RAM.
+	There is no backend database. Also, no JQuery is allowed anywhere in
+	your code. You should use the fetch api to make requests to the backend.
+
+	The marking scheme is again like A2, so simple, clear, concise code is best.
+	We will be marking the final version of your work, not the individual steps.
+
+Marking: You should expect your mark to be, approximately, ...
+
+	5/5 Simple, clear, concise working code
+	4/5 Works, but is not simple, clear, concise or minor flaws in functionality, interface etc. 
+	3/5 Conceptual errors, major flaws in functionality. 
+		Alternatively, lots of the types of flaws that bring one from 5/5 to 4/5
+	2/5 Many Conceptual errors
+	1/5 A non-functional serious attempt
+
+        Single member groups:
+                A3 Part1: 50%
+                A3 Part2: 50%
+        Double member groups:
+                A3 Part1: 40%
+                A3 Part2: 40%
+                A3 Part2 Features: 20%
+
+Help getting this done: I have outlined steps you can take, the steps I took
+in getting my A3 Part1 done. I have digested a lot of this and simplified
+it so that you can work through this quickly!! Now there will be a lot of
+things that are technical and can hold you up, so please post questions
+to the A3 FAQ on piazza.
+
+Step 01: 
+	'Screenshot from 2024-03-20 20-08-53.png'
+
+	Migrate the header alone to a React component. 
+	This means you will have to pull parts of 
+		wordle/frontend/src/components/index.html (left there for your convenience)
+	into 
+		wordle/frontend/src/components/main.jsx
+
+	you should also modify
+		wordle/frontend/src/index.css
+		
+	You should make the icons enlarge on hover. This is a css thing only.
+	I have included my css solution in style.css if you want to use mine.
+	
+	Things that came up:
+		className vs class
+		id should be removed
+		style should be fixed
+		onclick vs onClick, any you will have to remove most of them
+		for now!!
+
+		remove all references to JQuery
+
+Step 02: 
+	'Screenshot from 2024-03-20 20-32-25.png'
+
+	Migrate the Main UI to jsx
+	Leave the game description: Solo (ignore this on the video)
+
+	Fix </td> in code
+	style for rest of body
+	style={{ 'font-size':'xx-large' }} for example
+
+	What you see is in the video is 2 components. Main and Header
+
+Step 03: 
+	'Screencast from 2024-03-20 11:48:35 PM.webm'
+
+	This is a difficult step, it involves a deeper understanding of React.
+
+	Make the header navigation active, so that by clicking on
+	the appropriate nav element, the appropriate Component is visible.
+	You may have to look up conditional rendering.
+
+	Do this in a couple of steps, 
+		1) split the rest of the UI into components.
+		2) hookup the onClick to handlers for the icons
+			and console log which icon was selected
+		3) Use conditional rendering to select which Component
+			appears.
+
+		https://react.dev/learn/conditional-rendering
+
+		A couple of different approaches to knowing what was clicked...
+		Either use ids or pass an extra parameter...
+
+			clickHandler = (e) => { console.log(e.target.id); };
+			<button id={1} onClick={(e) => handleButtonCLick(e)}> A </button>
+			https://forum.freecodecamp.org/t/reactjs-how-can-recognise-which-button-was-clicked/526046
+
+		OR (I did this one...)
+
+			https://stackoverflow.com/questions/68101798/how-can-i-pass-other-arguments-to-event-handler-in-react
+
+Step 04: 
+	'Screencast from 2024-03-21 01:37:17 AM.webm'
+
+	Highlight the selected menu item in green as before. 
+	I have included my solution in index.css if you want to use mine.
+
+Step 05: 
+	
+	Enable virtual keyboard clicks. To do this, you probably want to create some additional
+	components! Test it by having each keypress raise a javascript alert
+	or console.log. Make sure that the alert or log has the key that was pressed.
+
+	Remember, do this the React way! No JQuery.
+
+Step 06a: 
+	I have started this step for you!
+
+	By using the proxy, we have avoided a whole collection of security and config issues related to CORS.
+	All api requests go through the frontend and are proxied to the backend!!
+
+	Example of issues we avoid: https://stackoverflow.com/questions/58228871/cookies-and-samesite-secure-expressjs
+
+	Change the system so that we proxy all api requests from frontend over to the same server
+	but with our backend api port.
+
+	https://www.geeksforgeeks.org/how-proxy-backend-server-using-react-js/
+
+	# Already done for you!!
+	# npm i http-proxy-middleware --save 
+	# vim setupProxy.js
+
+	You should check setupProxy.js to make sure that everything is getting properly
+	forwarded to the backend API server, so correct the port for example!
+
+Step 06b: 
+
+	'Screencast from 2024-03-23 12:20:07 PM.webm'
+		
+ 	For this step, we will start to replicate A2 part 2. 
+
+	Just get the username from the server using a restful api.
+	Now for this step, we will use the fetch api...
+
+	https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+	Because I don't want you to get stuck, you can find my version of api.js
+
+	We touch on: React, Restful API (frontend: fetch api), careful about cors, we can be Strict etc, 
+	since as far as the api server is concerned, all requests come from the frontend.
+
+	Backend: express, model.js, and also careful about cors.
+
+	Also, lets set the main menu to match our expectations:
+
+	Solo
+	<br/>
+	Play the classic game against yourself.
+
+	NOTE for the interested:
+
+		We wish we could have replicated A2 part 1. The main problem
+		here is that the framework really does not like playing nicely with 
+		maintaining a class like Wordle. It can be done, but we are working against
+		the framework here. For example: 
+	
+		https://react.dev/learn/updating-objects-in-state
+
+
+Step 07: 
+	'Screencast from 2024-03-23 03:21:34 PM.webm'
+
+	We don't want to get a new username each time this browser visits
+	the website, so solve this problem using cookies. The first time
+	the browser visits, they get a new username, after that they
+	get the username they got before.
+
+	You may be surprised to learn that this involves only modifications to 
+	backend...
+
+	https://pankaj-kumar.medium.com/how-to-handle-cookies-in-node-js-express-app-b16a5456fbe0
+
+	We are not explicitly playing with cookies on the frontend, just leaving
+	the browser to do its job.
+
+Step 08:
+	'Screencast from 2024-03-23 09:51:03 PM.webm'
+
+	Tie in the gameboard with the keyboard so that when you press a key
+	it shows up on the appropriate spot of the gameboard.
+
+	You can steal some of the code from A2. DEL, ENTER, other key, but no JQuery etc.
+
+	For this phase, I just made the enter key move to the next row.
+	Note that once we run out of squares we have a problem!! We fix all of this later.
+
+	Again, this step does not involve making requests to the server. Thats later.
+
+Step 09:
+	'Screencast from 2024-03-23 10:30:57 PM.webm'
+
+	You will need to lift state very high up, otherwise, when you select
+	different parts of the UI, the game will be thrown out, as shown in the previous video.
+
+Step 10: 
+	'Screencast from 2024-03-24 01:58:06 AM.webm'
+
+	Enable the "NEW GAME" button and make the associated AJAX fetch request
+	to start a new game. When a game is in play, the "NEW GAME" button should
+	disappear.
+
+	Additionally, the keyboard will no longer accept input if there is not a current
+	game available to submit guesses against. So the keyboard becomes active then 
+	there is a server instance of Wordle in the play state. 
+
+Step 11:
+	'Screencast from 2024-03-24 03:28:51 AM.webm'
+
+	When the user presses enter, if the guess is complete, forward it to the server.
+	You can check the response in web developer tools on the browser. You should
+	have the score for the word or an error if there is an issue.
+
+Step 12: 
+	Highlight both the keyboard and the gameboard as in Assignment 2.
+	This is a very tedious bit of code to get right. It certainly feels
+	like we are fighing against the framework here. After a few revisions
+	this becomes a bit less complex!
+
+Step 13: 
+	Alert user about incorrect guesses as well as whether they won or lost.
+	Maintain the score and enable its display.
